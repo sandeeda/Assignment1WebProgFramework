@@ -1,8 +1,8 @@
 {
-  "name": "assignment1",
+  "name": "Asn1-Sandeep",
   "version": "1.0.0",
   "description": "This is the first assignment for web programming and framework 1",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

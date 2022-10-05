@@ -1,3 +1,15 @@
+/******************************************************************************
+***
+* ITE5315 – Assignment 1
+* I declare that this assignment is my own work in accordance with Humber Academic Policy. 
+* No part of this assignment has been copied manually or electronically from any other source
+* (including web sites) or distributed to other students.
+* 
+* Name: ___________________ Student ID: _______________ Date: ____________________
+*
+*
+******************************************************************************
+**/
 const express = require('express')
 // Create router
 const router = express.Router()
@@ -73,7 +85,19 @@ router.route('/data/search/title')
     });
     if (found != 0)
     {
-        res.status(200).send(booksWithTitle.foundBooks);
+        var tableData = '<table border="1"><tr><td>ISBN</td><td>Author</td><td>title</td><td>inventory</td><td>category</td></tr>';
+        console.log(booksWithTitle.foundBooks.length);
+        for(var i=0;i<booksWithTitle.foundBooks.length;i++) {
+         tableData += '<tr><td>'+
+         booksWithTitle.foundBooks[i]["ISBN"]+
+         '</td><td>'+
+         booksWithTitle.foundBooks[i]["author"]+
+         '</td><td>'+booksWithTitle.foundBooks[i]["title"]+
+         '</td><td>'+booksWithTitle.foundBooks[i]["inventory"]+
+         '</td><td>'+booksWithTitle.foundBooks[i]["category"]+
+         '</td></tr>';
+        };
+        res.status(200).send(tableData);
     }
     
     res.status(200).send("Tried hard! BUT not found");
